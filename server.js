@@ -13,7 +13,7 @@ app.use(bodyParser.json())
 
 // mongo connect
 mongoose
-    .connect(process.env._mongoURI)
+    .connect(process.env._mongoURI, { useNewUrlParser: true })
     .then(()=>console.log('mongo db is connected...'))
     .catch((err)=>console.log(err))
 
