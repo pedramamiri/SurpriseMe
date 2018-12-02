@@ -1,9 +1,17 @@
-import React, { Component } from 'react';
+import React,
+       { Component }   from 'react';
 import './style.css'
-import classNames from 'classnames'; 
-import LoginForm from '../../components/LoginForm';
-import Logo from '../../components/Logo';
-import { ReactComponent as Close } from '../../assets/svg/close.svg';
+import classNames      from 'classnames'; 
+import LoginForm       from '../../components/LoginForm';
+import Logo            from '../../components/Logo';
+import { 
+  ReactComponent as Close
+  }                    from '../../assets/svg/close.svg';
+import { connect }     from 'react-redux';
+import { getFamilies } from '../../actions/familyActions';
+
+
+
 
 
 
