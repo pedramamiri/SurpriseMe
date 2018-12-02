@@ -11,6 +11,11 @@ export default (state = initialState,action) => {
             return {
                 ...state
             }
+        case ADD_FAMILY:
+            return{
+                ...state,
+                ...action.payload
+            }    
         default:
             return state;    
     }

@@ -9,6 +9,7 @@ import {
   }                    from '../../assets/svg/close.svg';
 import { connect }     from 'react-redux';
 import { getFamilies } from '../../actions/familyActions';
+import PropTypes       from 'prop-types';
 
 
 
@@ -22,6 +23,10 @@ class Header extends Component {
       loginClicked : false
     }
   }
+  componentDidMount(){
+    this.props.getFamilies();
+  }
+
   loginClick = ()=>{
     this.setState({
       loginClicked : !this.state.loginClicked
@@ -46,5 +51,17 @@ class Header extends Component {
       );
     }
   }
+Header.propTypes = {
+  getFamilies: PropTypes.func.isRequired,
+  family: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array
+  ])
+}
+
+
+const mapStateToProps = (state)=>({
+  family: state.family
+}) 
   
-export default Header;
+export default connect(mapStateToProps,{getFamilies})(Header);

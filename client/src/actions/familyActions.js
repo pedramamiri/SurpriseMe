@@ -10,4 +10,11 @@ export const getFamilies = ()=>{
     };
 };
 
+export const addFamily = (data)=>{
+    return {
+        type: ADD_FAMILY,
+        payload:data
+    };
+};
+
 
