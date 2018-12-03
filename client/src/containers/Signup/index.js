@@ -28,12 +28,18 @@ class Signup extends Component {
     })
   }
   submit = ()=>{
-   this.props.addFamily([{
+   this.props.addFamily({
     familyName:this.familyName.value,
     familyCode:this.password.value,
     admin:this.name.value,
     members:[ ...this.state.members ]
-   }]);
+   });
+   /*console.log({
+    familyName:this.familyName.value,
+    familyCode:this.password.value,
+    admin:this.name.value,
+    members:[ ...this.state.members ]
+   })*/
   }
   
   render() {
