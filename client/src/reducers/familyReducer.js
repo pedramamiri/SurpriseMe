@@ -14,8 +14,9 @@ export default (state = initialState,action) => {
         case ADD_FAMILY:
             return{
                 ...state,
-                ...action.payload
-            }    
+                families:[...action.payload,...state.families]  
+            }
+               
         default:
             return state;    
     }

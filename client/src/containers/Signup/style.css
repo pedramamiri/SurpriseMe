@@ -5,47 +5,25 @@
     flex-direction: row;
 
 }
-
 .signupForm{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    padding: 15vh 0 0 2vw;
-    background-color: rgb(255, 255, 255);
-    width: 50%;
+    width: 40%;
     height: 100%;
-    border-radius: 5px;
+    padding: 15vh 0 0 2vw;
 }
-.admin{
-    width: 80%;
-    display: flex;
-    margin: 5px;
-    justify-content: space-between;
-}
-.member{
-    width: 80%;
-    margin: 5px;
-    display: flex;
-    flex-direction: column;
-}
-.admin input{
-    padding: 5px;
+.signupForm input{
+    margin: 10px 0;
+    display: block;
     border:0;
     outline: 0;
     background: transparent;
     border-bottom: 1px solid black;
-    border-radius: 5px;
+    border-radius: 2px;
 }
-.member input{
+.signupForm button{
     padding: 5px;
-    border:0;
-    outline: 0;
-    background: transparent;
-    border-bottom: 1px solid black;
-    border-radius: 5px;
-}
-.member button{
-    padding: 5px;
+    cursor: pointer;
     border:none;
     outline: 0;
     margin: 5px;
@@ -53,23 +31,22 @@
     background-color: rgb(201, 25, 25);
     color:rgb(255, 255, 255);
 }
-.submit button{
-    padding: 5px;
-    border:none;
-    outline: 0;
-    margin: 5px;
-    border-radius: 5px;
-    background-color: rgb(201, 25, 25);
-    color:rgb(255, 255, 255);
-}
-.submit{
-    width: 80%;
-    margin: 5px;
-    display: flex;
-    flex-direction: column;
+.signupForm button:active{
+    transform: translateY(2px);
 }
 .memberList{
-    width: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    list-style: none;
+    width: 60%;
     padding: 15vh 0 0 2vw;
-
+}
+.memberList li{
+    padding:5px;
+    margin: 2px;
+    width:25%;
+    background-color:rgb(201, 25, 25);
+    color:white;
+    border-radius:5px;
 }

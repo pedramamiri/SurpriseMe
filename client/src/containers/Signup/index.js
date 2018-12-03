@@ -5,6 +5,7 @@ import classNames      from 'classnames';
 import { connect }     from 'react-redux';
 import PropTypes       from 'prop-types';
 import { addFamily } from '../../actions/familyActions';
+import uuid from 'uuid';
 
 
 class Signup extends Component {
@@ -27,52 +28,49 @@ class Signup extends Component {
     })
   }
   submit = ()=>{
-    const form = {
-      familyName:this.familyName,
-      familyCode:this.password,
-      admin:this.name,
-      members:[ ...this.state.members ]
-    }
-    this.props.addFamily(form);
+   this.props.addFamily([{
+    familyName:this.familyName.value,
+    familyCode:this.password.value,
+    admin:this.name.value,
+    members:[ ...this.state.members ]
+   }]);
   }
   
   render() {
       return (
         <div className="Signup">
           <div className="signupForm">
-            <div className="admin">
-              <label>Name:</label>
-              <input ref={el => this.name = el} type="text"/>
-            </div>
-            <div className="admin">
-              <label>Family name:</label>
-              <input ref={el => this.familyName = el} type="text"/>
-            </div>
-            <div className="admin">
-              <label>Password:</label>
-              <input ref={el => this.password = el} type="password"/>
-            </div>
-            <div className="admin">
-              <label>Email:</label>
-              <input ref={el => this.email = el} type="email" />
-            </div>
-            <div className="member">
-              <p>Add a member</p>
-              <label>Members name</label>
-              <input ref={el => this.memberName = el} type="text" id="memberName" />
-              <label>Members Email</label>
-              <input ref={el => this.memberEmail = el} type="email" id="memberEmail" />
-              <button onClick={this.addMember} id="addMember">+</button>
-            </div>
-            <div className="submit">
-              <button onClick={this.submit}>Submit</button>
-            </div>
+
+            <label>Name:</label>
+            <input ref={el => this.name = el} type="text"/>
+            <label>Family name:</label>
+            <input ref={el => this.familyName = el} type="text"/>
+            <label>Password:</label>
+            <input ref={el => this.password = el} type="password"/>
+            <label>Email:</label>
+            <input ref={el => this.email = el} type="email" />
+          
+            <h3>Add a member</h3>
+            <label>Members name</label>
+            <input ref={el => this.memberName = el} type="text" id="memberName" />
+            <label>Members Email</label>
+            <input ref={el => this.memberEmail = el} type="email" id="memberEmail" />
+            <button onClick={this.addMember} id="addMember">+</button>
+          
+            <button onClick={this.submit}>Submit</button>
+            
           </div> 
-          <div className="memberList">
+          <ul className="memberList">
             {
-              this.state.members.map(member=><p style={{padding:"5px",width:"70%",backgroundColor:"rgb(201, 25, 25)",color:"white",borderRadius:"5px"}}>{member.name}</p>)
+              this.state.members.map(member=>
+              {
+                if(member.name){
+                  return <li key={uuid()}>{member.name}</li>
+                }
+                return ""
+              })
             }
-          </div>
+          </ul>
         
         </div>
       );
