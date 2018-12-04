@@ -17,10 +17,18 @@ router.get('/',(req,res)=>{
 // @desc     Add a new family
 // @access   Public
 router.post('/',(req,res)=>{
+     
     const newFamily = new Family({
         familyName  : req.body.familyName,
         familyCode  : req.body.familyCode,
-        admin       : req.body.admin
+        admin       : req.body.admin,
+        members     : req.body.members.map(member =>(
+            {
+                name         : member.name,
+                email        : member.email,
+                personalCode : member.personalCode
+            } 
+        ))    
     })
     newFamily.save()
         .then((family)=> res.json(family))

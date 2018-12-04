@@ -1,4 +1,5 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const Memberschema = require('./Member');
 const Schema   = mongoose.Schema;
 
 //Create user schema
@@ -15,9 +16,7 @@ const Familyschema = new Schema({
         type:String,
         require:true
     },
-    member:{
-        type:Array
-    }
+    members:[Memberschema]
 
 })
 

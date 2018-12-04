@@ -27,19 +27,18 @@ class Signup extends Component {
       ]
     })
   }
+
   submit = ()=>{
    this.props.addFamily({
     familyName:this.familyName.value,
     familyCode:this.password.value,
     admin:this.name.value,
-    members:[ ...this.state.members ]
+    members:[ {
+      name  : this.name.value,
+      email : this.email.value,
+      personalCode:this.personalCode.value
+    },...this.state.members]
    });
-   /*console.log({
-    familyName:this.familyName.value,
-    familyCode:this.password.value,
-    admin:this.name.value,
-    members:[ ...this.state.members ]
-   })*/
   }
   
   render() {
@@ -53,6 +52,8 @@ class Signup extends Component {
             <input ref={el => this.familyName = el} type="text"/>
             <label>Password:</label>
             <input ref={el => this.password = el} type="password"/>
+            <label>Personal Code:</label>
+            <input ref={el => this.personalCode = el} type="password"/>
             <label>Email:</label>
             <input ref={el => this.email = el} type="email" />
           
